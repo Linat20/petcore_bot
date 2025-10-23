@@ -2,17 +2,28 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const path = require('path');
 
-// вставь свой токен сюда:
-const TOKEN = '8439578414:AAEHbxAcFwS-ym4C32O1Ohb7dHfPU0tTbfA';
-const bot = new TelegramBot(TOKEN, { polling: true });
-
+const TOKEN = process.env.BOT_TOKEN || '8439578414:AAEHbxAcFwS-ym4C32O1Ohb7dHfPU0tTbfA';
 const app = express();
+
+const bot = new TelegramBot(TOKEN);
+const URL = 'https://petcore-bot.onrender.com'; // замени на адрес Render после деплоя
+
+// Настраиваем статические файлы (для webapp)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// При нажатии на кнопку бот откроет WebApp
+// Подключаем webhook
+app.post(`/bot${TOKEN}`, (req, res) => {
+  bot.processUpdate(req.body);
+  res.sendStatus(200);
+});
+
+bot.setWebHook(`${URL}/bot${TOKEN}`);
+
+// При нажатии /start отправляем сообщение с кнопкой
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
-  const webAppUrl = 'https://petcore-bot.onrender.com'; // позже сюда добавим ссылку
+  const webAppUrl = URL;
+
   bot.sendMessage(chatId, "🔥 Добро пожаловать в PetCore!", {
     reply_markup: {
       inline_keyboard: [
@@ -22,4 +33,7 @@ bot.onText(/\/start/, (msg) => {
   });
 });
 
-app.listen(3000, () => console.log('✅ Сервер запущен на http://localhost:3000'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Сервер запущен на порту ${PORT}`);
+});
