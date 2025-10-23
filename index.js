@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // При нажатии на кнопку бот откроет WebApp
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
-  const webAppUrl = 'https://твой_будущий_сервер_или_ngrok_url'; // позже сюда добавим ссылку
+  const webAppUrl = 'https://petcore-bot.onrender.com'; // позже сюда добавим ссылку
   bot.sendMessage(chatId, "🔥 Добро пожаловать в PetCore!", {
     reply_markup: {
       inline_keyboard: [
