@@ -2,55 +2,17 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PetCore</title>
-  <style>
-    body {
-      background: radial-gradient(circle at center, #ff7b00, #1a1a1a);
-      color: white;
-      font-family: "Segoe UI", sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    h1 {
-      font-size: 2em;
-      margin-bottom: 40px;
-    }
-
-    button {
-      background: #ff4500;
-      border: none;
-      color: white;
-      padding: 15px 40px;
-      margin: 10px;
-      font-size: 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #ffa500;
-      transform: scale(1.05);
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetCore | Загрузка</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Илназ СОСАЛ?</h1>
-  <div>
-    <button onclick="answer('ДА')">Да</button>
-    <button onclick="answer('ДА.конечно!')">Да</button>
+  <div class="loading-container">
+    <h1 class="logo">🔥 PetCore</h1>
+    <div class="loader"></div>
+    <p class="loading-text">Загрузка...</p>
   </div>
 
-  <script>
-    function answer(option) {
-      alert("Ты выбрал: " + option);
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
