@@ -11,4 +11,4 @@ const interval = setInterval(() => {
       window.location.href = 'menu.html';
     }, 500);
   }
-}, 600); // длительность ~3 сек
+}, 300); // длительность ~3 сек

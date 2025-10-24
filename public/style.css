@@ -30,7 +30,7 @@ body.splash {
 
 /* Контейнер для сплеш-экрана */
 .splash-container {
-  background: rgba(0, 0, 0, 0.4);
+  /* background: rgba(0, 0, 0, 0.4); */
   position: absolute;
   top: 90%;
   left: 50%;
