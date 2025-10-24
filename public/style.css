@@ -28,14 +28,16 @@ body.splash {
 }
 */
 
-/* Альтернативный вариант с гарантированным покрытием */
 body.splash {
-  background: url('images/splash-bg1.jpg') center center/contain no-repeat;
-  background-color: #ff6600;
- /* background-size: cover;
+  background-image: url('images/splash-bg2.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;*/
+  background-size: cover;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 
