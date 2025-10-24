@@ -1,3 +1,10 @@
+/* Сброс и базовые стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,60 +13,43 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh; /* Изменено с height на min-height */
+  width: 100vw;
   color: white;
   overflow: hidden;
+  position: fixed; /* Фиксируем чтобы не было скролла */
+  top: 0;
+  left: 0;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px #ff6600; }
-  to { text-shadow: 0 0 30px #ff3300; }
-}
-
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 5px solid rgba(255,255,255,0.2);
-  border-top-color: #ffcc33;
-  border-radius: 50%;
-  animation: spin 1.5s linear infinite;
-  margin: 20px auto;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
-}
+/* Объединяем оба стиля body в один */
 body.splash {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: url('images/splash-bg1.jpg') center/cover no-repeat;
-  font-family: 'Arial', sans-serif;
 }
 
+/* Контейнер для сплеш-экрана */
 .splash-container {
   text-align: center;
   background: rgba(0, 0, 0, 0.4);
   padding: 40px;
   border-radius: 12px;
+  max-width: 90vw; /* Ограничиваем ширину на больших экранах */
+  width: auto;
+  margin: 0 auto;
 }
 
+/* Адаптивный логотип */
 .logo {
-  width: 120px;
+  width: min(120px, 20vw); /* Адаптивная ширина */
+  max-width: 120px;
+  min-width: 80px;
   margin-bottom: 30px;
+  height: auto;
 }
 
+/* Адаптивная полоса загрузки */
 .progress-bar {
-  width: 200px;
+  width: min(300px, 80vw); /* Адаптивная ширина */
   height: 10px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
@@ -74,8 +64,72 @@ body.splash {
   transition: width 0.1s linear;
 }
 
+/* Адаптивный текст */
 .loading-text {
   color: #fff;
-  font-size: 14px;
+  font-size: clamp(12px, 4vw, 16px); /* Адаптивный размер шрифта */
   margin-top: 8px;
+}
+
+/* Адаптивный лоадер */
+.loader {
+  width: min(60px, 15vw);
+  height: min(60px, 15vw);
+  border: 5px solid rgba(255,255,255,0.2);
+  border-top-color: #ffcc33;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  margin: 20px auto;
+}
+
+/* Анимации */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ff6600; }
+  to { text-shadow: 0 0 30px #ff3300; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Медиа-запросы для особых случаев */
+@media (max-height: 600px) {
+  .splash-container {
+    padding: 20px;
+  }
+  
+  .logo {
+    margin-bottom: 15px;
+  }
+  
+  .loader {
+    margin: 10px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .splash-container {
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .progress-bar {
+    height: 8px;
+  }
+}
+
+/* Для очень высоких экранов */
+@media (min-height: 1000px) {
+  .splash-container {
+    padding: 60px 40px;
+  }
+  
+  .logo {
+    width: min(180px, 15vw);
+  }
 }
