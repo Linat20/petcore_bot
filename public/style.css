@@ -11,12 +11,6 @@ body {
   overflow: hidden;
 }
 
-.logo {
-  font-size: 3em;
-  text-shadow: 0 0 15px #ff9966, 0 0 30px #ff3300;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
 @keyframes glow {
   from { text-shadow: 0 0 10px #ff6600; }
   to { text-shadow: 0 0 30px #ff3300; }
@@ -36,14 +30,52 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.loading-text {
-  font-size: 1.2em;
-  letter-spacing: 2px;
-  opacity: 0.8;
-  animation: pulse 2s infinite;
-}
+
 
 @keyframes pulse {
   0%, 100% { opacity: 0.8; }
   50% { opacity: 1; }
+}
+body.splash {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('images/splash-bg.jpg') center/cover no-repeat;
+  font-family: 'Arial', sans-serif;
+}
+
+.splash-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff8800, #ffcc33);
+  transition: width 0.1s linear;
+}
+
+.loading-text {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 8px;
 }
