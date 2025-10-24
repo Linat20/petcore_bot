@@ -32,7 +32,7 @@ body.splash {
 .splash-container {
   background: rgba(0, 0, 0, 0.4);
   position: absolute;
-  top: 60%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
   /* margin-top: 800px;
