@@ -22,10 +22,21 @@ body {
   left: 0;
 }
 
-/* Объединяем оба стиля body в один */
+/* Объединяем оба стиля body в один 
 body.splash {
   background: url('images/splash-bg1.jpg') center/cover no-repeat;
 }
+*/
+
+/* Альтернативный вариант с гарантированным покрытием */
+body.splash {
+  background: url('images/splash-bg1.jpg') center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 
 /* Контейнер для сплеш-экрана */
 .splash-container {
