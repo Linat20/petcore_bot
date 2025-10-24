@@ -30,8 +30,9 @@ body.splash {
 
 /* Контейнер для сплеш-экрана */
 .splash-container {
+  margin-top: 800px;
  text-align: center;
- /* background: rgba(0, 0, 0, 0.4);*/
+ background: rgba(0, 0, 0, 0.4);
   padding: 40px;
   border-radius: 12px;
   max-width: 90vw;
