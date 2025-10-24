@@ -30,11 +30,12 @@ body.splash {
 
 /* Альтернативный вариант с гарантированным покрытием */
 body.splash {
-  background: url('images/splash-bg1.jpg') center/cover no-repeat;
-  background-size: cover;
+  background: url('images/splash-bg1.jpg') center center/contain no-repeat;
+  background-color: #ff6600;
+ /* background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
 }
 
 
