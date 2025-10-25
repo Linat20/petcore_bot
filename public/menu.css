@@ -1,11 +1,27 @@
 body {
   margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url("images/biome_fire.png") no-repeat center center / cover;
   overflow: hidden;
-  background-color: #000;
 }
 
 canvas {
   display: block;
   width: 100vw;
   height: 100vh;
+}
+
+#arena {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#arena:hover {
+  transform: translateX(-50%) scale(1.05);
 }
