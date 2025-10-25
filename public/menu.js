@@ -6,7 +6,7 @@ canvas.height = window.innerHeight;
 
 // Загружаем изображения
 const bg = new Image();
-bg.src = 'images/biome_fire.jpg'; // фон биома
+bg.src = 'images/biome_fire.png'; // фон биома
 
 const pet = new Image();
 pet.src = 'images/flaer.png'; // питомец
